@@ -5,7 +5,7 @@ import { Mesh } from "./graphics/mesh";
 export class GameObject extends Nodo {
     public mesh: Mesh;
     public type: string = 'GameObject'
-
+    public position: THREE.Vector3;
 
 
 }

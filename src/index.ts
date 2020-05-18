@@ -1,17 +1,10 @@
 // add styles
 import './style.css';
+import { BattleRoyale } from './battleroyal';
 // three.js
-import { Engine } from './core/engine';
-import { MainScene } from './battleroyal/main_scene';
 
+BattleRoyale();
 
-const engine = new Engine();
-engine.register([
-  MainScene
-])
-engine.OnInit();
-engine.start();
-console.log(engine)
 // create the scene
 // const scene = new THREE.Scene();
 
