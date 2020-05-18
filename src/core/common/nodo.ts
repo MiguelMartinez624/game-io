@@ -3,6 +3,7 @@
 export abstract class Nodo {
     public ID: string = "test";
     public childs: Nodo[] = [];
+    public type: string;
 
     public OnInit(): void {
         this.initTree();

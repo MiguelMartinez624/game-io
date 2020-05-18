@@ -1,9 +1,7 @@
 // add styles
 import './style.css';
 // three.js
-import * as THREE from 'three';
 import { Engine } from './core/engine';
-import { Scene } from './core/graphics/scene';
 import { MainScene } from './battleroyal/main_scene';
 
 
@@ -11,9 +9,9 @@ const engine = new Engine();
 engine.register([
   MainScene
 ])
-
+engine.OnInit();
+engine.start();
 console.log(engine)
-
 // create the scene
 // const scene = new THREE.Scene();
 

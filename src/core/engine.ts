@@ -1,6 +1,6 @@
 import { GraphicsSystem } from "./graphics/system";
-import { Entity } from "./entity";
 import { Nodo } from "./common/nodo";
+import { Scene } from "./graphics/scene";
 
 type Constructor<Nodo> = new (...args: any[]) => Nodo;
 export class Engine {
@@ -17,11 +17,24 @@ export class Engine {
         this._nodos = nodos;
     }
 
+
+
     public OnInit(): void {
         this._nodos.forEach(c => {
+
             let instance = new c();
-            instance.OnInit();
-            this._instances.push(instance);
+
+            if (instance['ItsScene'] !== undefined) {
+                this._graphicSystem.addScene(<Scene>instance);
+
+            }
+
+            // Anything that its not a scene like controllers or managers
+            else {
+
+                this._instances.push(instance);
+            }
+
         });
     }
 
@@ -33,6 +46,7 @@ export class Engine {
     }
 
     public tick(): void {
-
+        requestAnimationFrame(this.tick.bind(this));
+        this._graphicSystem.tick();
     }
 }
